@@ -41,12 +41,12 @@ spec:
   # If you have an Argo CD Application that should be synced after the Git
   # repository is updated, uncomment the following lines and specify the
   # app name.
-  # - uses: argocd-update
-  #   config:
-  #     apps:
-  #     - name: guestbook-${{ ctx.stage }}
-  #       sources:
-  #       - repoURL: ${{ vars.repoURL }}
+  - uses: argocd-update
+    config:
+      apps:
+      - name: kargo-simple-${{ ctx.stage }}
+        sources:
+        - repoURL: ${{ vars.repoURL }}
 
 ---
 # Copy of promote task but with a pull request

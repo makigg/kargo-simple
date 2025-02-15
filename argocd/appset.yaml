@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: kargo-simple
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/makigg/kargo-simple.git
+      revision: HEAD
+      directories:
+      - path: env/*
+  template:
+    metadata:
+      name: kargo-simple-{{path.basename}}
+      annotations:
+        kargo.akuity.io/authorized-stage: kargo-simple:{{path.basename}}
+    spec:
+      destination:
+        namespace: kargo-simple-{{path.basename}}
+        name: platform
+      project: kargo-simple
+      source:
+        path: charts/guestbook
+        repoURL: https://github.com/makigg/kargo-simple.git
+        targetRevision: HEAD
+        path: env/{{path.basename}}

@@ -60,4 +60,4 @@ spec:
     spec:
       steps:
       - task:
-          name: promote-with-pr
+          name: promote

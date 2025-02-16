@@ -27,7 +27,7 @@ a path in a Git repository automatically (e.g. using auto-sync).
    username:
 
    ```shell
-   ./personalize.sh <yourgithubusername>
+   ./personalize.sh makigg
    ```
 3. `git commit` the personalized changes:
 
@@ -45,7 +45,7 @@ a path in a Git repository automatically (e.g. using auto-sync).
 
    docker buildx imagetools create \
      ghcr.io/akuity/guestbook:latest \
-     -t ghcr.io/<yourgithubusername>/guestbook:v0.0.1
+     -t ghcr.io/makigg/guestbook:v0.0.1
    ```
 
    You will now have a `guestbook` container image repository. e.g.:
@@ -85,8 +85,8 @@ a path in a Git repository automatically (e.g. using auto-sync).
    kargo create credentials github-creds \
      --project kargo-simple \
      --git \
-     --username <yourgithubusername> \
-     --repo-url https://github.com/<yourgithubusername>/kargo-simple.git
+     --username makigg \
+     --repo-url https://github.com/makigg/kargo-simple.git
    ```
 
    As part of the promotion process, Kargo requires privileges to commit changes
@@ -113,7 +113,7 @@ To simulate a release, simply retag an image with a newer semantic version. e.g.
 ```shell
 docker buildx imagetools create \
   ghcr.io/akuity/guestbook:latest \
-  -t ghcr.io/<yourgithubusername>/guestbook:v0.0.2
+  -t ghcr.io/makigg/guestbook:v0.0.2
 ```
 
 Then refresh the Warehouse in the UI to detect the new Freight.

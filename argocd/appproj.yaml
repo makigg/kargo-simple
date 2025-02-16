@@ -9,7 +9,7 @@ spec:
     kind: Namespace
   destinations:
   - name: '*'
-    namespace: kargo-simple-*
+    namespace: 'guestbook-simple-*'
     server: '*'
   namespaceResourceWhitelist:
   - group: '*'

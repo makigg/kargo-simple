@@ -17,7 +17,7 @@ spec:
         kargo.akuity.io/authorized-stage: kargo-simple:{{path.basename}}
     spec:
       destination:
-        namespace: kargo-simple-{{path.basename}}
+        namespace: guestbook-simple-{{path.basename}}
         name: platform
       project: kargo-simple
       source:
@@ -25,3 +25,6 @@ spec:
         repoURL: https://github.com/makigg/kargo-simple.git
         targetRevision: HEAD
         path: env/{{path.basename}}
+      # auto sync
+      syncPolicy:
+        automated: {}
